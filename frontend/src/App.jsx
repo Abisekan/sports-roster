@@ -36,7 +36,7 @@ function App() {
       method: "DELETE",
     })
       .then(() => {
-        setPlayers(players.filter((player) => player.id !== id));
+        setPlayers(players.filter((player) => player._id !== id));
       })
       .catch((error) => console.error("Error deleting player:", error));
   };
@@ -114,7 +114,7 @@ function App() {
       <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
         {players.map((player) => (
           <div
-            key={player.id}
+            key={player._id}
             style={{
               border: "1px solid #ccc",
               padding: "15px",
@@ -136,7 +136,7 @@ function App() {
 
             {/* The Delete Button */}
             <button
-              onClick={() => handleDeletePlayer(player.id)}
+              onClick={() => handleDeletePlayer(player._id)}
               style={{
                 marginTop: "10px",
                 width: "100%",
